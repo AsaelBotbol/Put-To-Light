@@ -44,9 +44,11 @@
             this.btnPreview.TabIndex = 0;
             this.btnPreview.Text = "Generar";
             this.btnPreview.UseVisualStyleBackColor = true;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Enabled = false;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(12, 542);
             this.btnGuardar.Name = "btnGuardar";

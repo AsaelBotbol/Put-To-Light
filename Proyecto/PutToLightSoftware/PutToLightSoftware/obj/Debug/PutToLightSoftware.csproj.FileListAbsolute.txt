@@ -1,0 +1,15 @@
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\bin\Debug\PutToLightSoftware.exe.config
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\bin\Debug\PutToLightSoftware.exe
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\bin\Debug\PutToLightSoftware.pdb
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\bin\Debug\Gma.QrCodeNet.Encoding.dll
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\bin\Debug\Gma.QrCodeNet.Encoding.pdb
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\bin\Debug\Gma.QrCodeNet.Encoding.xml
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.Form1.resources
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.csproj.GenerateResource.cache
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.exe
+C:\Users\User\Documents\GitHub\Proyecto-Put-To-Light-TIC\Proyecto\PutToLightSoftware\PutToLightSoftware\obj\Debug\PutToLightSoftware.pdb
