@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace PutToLightSoftware
 {
-    public partial class Form1 : Form
+    public partial class Codificador : Form
     {
-        public Form1()
+        public Codificador()
         {
             InitializeComponent();
         }
