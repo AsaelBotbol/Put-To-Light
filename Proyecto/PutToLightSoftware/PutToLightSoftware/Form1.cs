@@ -55,5 +55,10 @@ namespace PutToLightSoftware
             }
             imgFinal.Dispose();
         }
+
+        private void panelResultado_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

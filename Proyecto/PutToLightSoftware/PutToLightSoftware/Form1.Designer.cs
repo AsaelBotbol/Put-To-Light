@@ -85,6 +85,7 @@
             this.panelResultado.Name = "panelResultado";
             this.panelResultado.Size = new System.Drawing.Size(400, 400);
             this.panelResultado.TabIndex = 4;
+            this.panelResultado.Paint += new System.Windows.Forms.PaintEventHandler(this.panelResultado_Paint);
             // 
             // label2
             // 
@@ -101,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(416, 610);
+            this.ClientSize = new System.Drawing.Size(413, 610);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panelResultado);
             this.Controls.Add(this.label1);

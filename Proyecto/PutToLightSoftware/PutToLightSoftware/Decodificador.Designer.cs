@@ -69,7 +69,7 @@
             // 
             this.cboDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDevice.FormattingEnabled = true;
-            this.cboDevice.Location = new System.Drawing.Point(421, 58);
+            this.cboDevice.Location = new System.Drawing.Point(418, 33);
             this.cboDevice.Name = "cboDevice";
             this.cboDevice.Size = new System.Drawing.Size(202, 21);
             this.cboDevice.TabIndex = 13;
@@ -78,7 +78,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(418, 33);
+            this.label2.Location = new System.Drawing.Point(415, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 24);
             this.label2.TabIndex = 12;
@@ -86,7 +86,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(629, 58);
+            this.btnStart.Location = new System.Drawing.Point(626, 33);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 11;
