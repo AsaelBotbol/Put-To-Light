@@ -16,7 +16,7 @@ namespace PutToLightSoftware
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Codificador());
+            Application.Run(new PutToLight());
         }
     }
 }
