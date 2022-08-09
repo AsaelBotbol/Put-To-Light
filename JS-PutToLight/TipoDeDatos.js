@@ -4,8 +4,6 @@
 'hello world' // string
 
 1000000 // number
-    -
-    2.3
 
 // boolean
 true
