@@ -1,3 +1,9 @@
 const contenedorQR = document.getElementById('contenedorQR');
+const formulario = document.getElementById('formulario');
 
-new QRCode(contenedorQR, 'holaxd');
+const QR = new QRCode(contenedorQR);
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    QR.makeCode(formulario.link.value);
+});

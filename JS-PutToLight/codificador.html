@@ -11,28 +11,33 @@
 
     <script defer src="app.js"></script>
 
+    <link rel="stylesheet" href="estilos.css">
+
 </head>
 
 <body>
     <header>
-        <h1>"Put to Light" Software</h1>
-        <h4>Uso exclusivo en la empresa.</h4>
+        <div class="header1">
+            <h1>"Put to Light" Software</h1>
+        </div>
     </header>
 
     <br>
     <br>
     <br>
 
-    <h3>Codificador de QR:</h3>
-    <button type="button" onclick="window.open('index.html', '_self').focus()">Codificar texto</button>
+    <h3>Volver a la pagina principal:</h3>
+    <button class="btnn" type="button" onclick="window.open('index.html', '_self').focus()">Volver al menu principal.</button>
 
     <br>
     <br>
 
     <div class="contenedor">
 
+        <h3>Codificador de QR:</h3>
+        <br>
         <form action="" id="formulario" class="formulario">
-            <input type="text" id="input" placeholder="Escribe el texto o URL:" />
+            <input type="text" id="link" placeholder="Escribe el texto o URL:" />
             <button class="btn">Generar QR</button>
         </form>
 
@@ -41,9 +46,6 @@
 
     <br>
     <br>
-
-    <p>Volver a la pagina principal:</p>
-    <button type="button" onclick="window.open('index.html', '_self').focus()">Click</button>
 
 </body>
 
