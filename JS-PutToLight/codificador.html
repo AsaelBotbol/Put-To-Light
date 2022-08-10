@@ -9,7 +9,7 @@
 
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="app.js"></script>
+    <script defer src="app.js"></script>
 
 </head>
 
@@ -27,8 +27,15 @@
     <button type="button" onclick="window.open('index.html', '_self').focus()">Codificar texto</button>
 
     <br>
+    <br>
 
     <div class="contenedor">
+
+        <form action="" id="formulario" class="formulario">
+            <input type="text" id="input" placeholder="Escribe el texto o URL:" />
+            <button class="btn">Generar QR</button>
+        </form>
+
         <div id="contenedorQR" class="contenedorQR"></div>
     </div>
 

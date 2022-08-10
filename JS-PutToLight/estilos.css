@@ -1,0 +1,21 @@
+.contenedorQR {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.formulario .btn {
+    width: 100%;
+    border: none;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.formulario .btn:hover {
+    background: #3e14b2;
+}
