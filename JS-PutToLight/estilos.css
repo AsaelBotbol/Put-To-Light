@@ -12,7 +12,7 @@ body {
 .contenedor {
     max-width: 90%;
     width: 400px;
-    margin: 80px auto;
+    margin: 10px auto;
 }
 
 .formulario input[type='text'] {
@@ -55,10 +55,8 @@ body {
     padding: 40px 0;
 }
 
-.hola {
-    display: flex;
-    justify-content: center;
-    width: 20%;
+.btnn {
+    width: 100%;
     border: none;
     background: rgb(0, 0, 0);
     color: #fff;
@@ -67,10 +65,15 @@ body {
     font-size: 20px;
     border-radius: 5px;
     font-family: 'Open Sans', sans-serif;
-    
 }
 
-.volvertext{
+.volvertext {
     display: flex;
     justify-content: center;
+}
+
+.volvertodo {
+    max-width: 90%;
+    width: 400px;
+    margin: 80px auto;
 }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codificador</title>
 
+    <!--Libreria QR-->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script defer src="app.js"></script>
@@ -16,37 +17,30 @@
 </head>
 
 <body>
+    <!--Titulo-->
     <header>
         <div class="header1">
             <h1>"Put to Light" Software</h1>
         </div>
     </header>
 
-    <br>
-    <br>
-    <br>
 
-
-        <h3 class = "volvertext">Volver a la pagina principal:</h3>
-        <button class = "btnn" type="button" onclick="window.open('index.html', '_self').focus()">Volver al menu principal.</button>
-
-    <br>
-    <br>
-
+    <!--Contenedor codificador-->
     <div class="contenedor">
-
         <h3>Codificador de QR:</h3>
         <br>
         <form action="" id="formulario" class="formulario">
             <input type="text" id="link" placeholder="Escribe el texto o URL:" />
             <button class="btn">Generar QR</button>
         </form>
-
         <div id="contenedorQR" class="contenedorQR"></div>
     </div>
 
-    <br>
-    <br>
+    <!--Contenedor volver index-->
+    <div class="volvertodo">
+        <h3 class="volvertext">Volver a la pagina principal:</h3> <br>
+        <button class="btnn" type="button" onclick="window.open('index.html', '_self').focus()">Volver al menu principal.</button>
+    </div>
 
 </body>
 
