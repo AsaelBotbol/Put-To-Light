@@ -6,28 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Put to Light</title>
+
+    <link rel="stylesheet" href="estiloindex.css">
 </head>
 
 <body>
 
     <!--Titulos-->
-    <header>
+    <header class="header2">
         <h1>"Put to Light" Software</h1>
-        <h4>Uso exclusivo en la empresa.</h4>
     </header>
 
     <br>
     <br>
 
     <!--Botones-->
-    <p>Haz click aquí para escanear el QR:</p>
-    <button type="button" onclick="window.open('decodificador.html', '_self').focus()">Decodificador</button>
+    <div class="contenedorbotonscann">
+        <h3>Haz click aquí para escanear el QR:</h3>
+        <br>
+        <button class="btnscann" type="button" onclick="window.open('decodificador.html', '_self').focus()">Decodificador</button>
+    </div>
 
-    <p>Haz click aquí para codificar a QR:</p>
-    <button type="button" onclick="window.open('codificador.html', '_self').focus()">Codificador</button>
-
-
-    <!--<script src="app.js"></script>  -->
+    <div class="contenedorbotondeco">
+        <h3>Haz click aquí para codificar a QR:</h3>
+        <br>
+        <button class="btndeco" type="button" onclick="window.open('codificador.html', '_self').focus()">Codificador</button>
+    </div>
 
 </body>
 

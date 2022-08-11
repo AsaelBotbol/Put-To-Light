@@ -12,7 +12,7 @@ body {
 .contenedor {
     max-width: 90%;
     width: 400px;
-    margin: 10px auto;
+    margin: 1px auto;
 }
 
 .formulario input[type='text'] {
@@ -46,7 +46,7 @@ body {
 .contenedorQR {
     display: flex;
     justify-content: center;
-    padding: 40px 0;
+    padding: 10px 0;
 }
 
 .header1 {
@@ -75,5 +75,5 @@ body {
 .volvertodo {
     max-width: 90%;
     width: 400px;
-    margin: 80px auto;
+    margin: auto;
 }
