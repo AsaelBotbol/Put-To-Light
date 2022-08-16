@@ -17,6 +17,11 @@ body {
     padding: 0;
 }
 
+.header2 {
+    display: flex;
+    justify-content: center;
+}
+
 .contenedor {
     width: 500px;
     background: #24303c;
