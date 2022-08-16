@@ -2,20 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #f2f2f2;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
+    background-image: url(fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 .contenedor {
-    max-width: 90%;
-    width: 400px;
-    margin: 1px auto;
+    width: 500px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
 }
 
-.formulario input[type='text'] {
+.contenedor input[type='text'] {
     padding: 20px;
     border: none;
     background: #fff;
@@ -27,19 +35,35 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.formulario .btn {
+.contenedor .btn {
     width: 100%;
+    background: #1f53c5;
     border: none;
-    background: rgb(0, 0, 0);
-    color: #fff;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    border-radius: 100px;
     cursor: pointer;
-    padding: 20px;
-    font-size: 20px;
-    border-radius: 5px;
-    font-family: 'Open Sans', sans-serif;
 }
 
-.formulario .btn:hover {
+.contenedor .btn:hover {
+    background: #3e14b2;
+}
+
+.contenedor .btnn {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.contenedor .btnn:hover {
     background: #3e14b2;
 }
 
@@ -47,33 +71,11 @@ body {
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    border: 1px solid black;
 }
 
 .header1 {
     display: flex;
     justify-content: center;
     padding: 40px 0;
-}
-
-.btnn {
-    width: 100%;
-    border: none;
-    background: rgb(0, 0, 0);
-    color: #fff;
-    cursor: pointer;
-    padding: 20px;
-    font-size: 20px;
-    border-radius: 5px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.volvertext {
-    display: flex;
-    justify-content: center;
-}
-
-.volvertodo {
-    max-width: 90%;
-    width: 400px;
-    margin: auto;
 }
