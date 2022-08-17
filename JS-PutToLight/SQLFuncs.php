@@ -25,7 +25,8 @@ function AddProd ($newQrCode, $nombre, $MaxEspacio){
 
     mysqli_select_db ("Database", $conexion);
 
-    $consulta = "INSERT INTO Producto (NombreProd, QRCode) VALUES ("$nombre", "$newQrCode") INNER JOIN Espacio ON ;";
+    $consulta = "INSERT INTO Producto (NombreProd, QRCode) VALUES ("$nombre", "$newQrCode");";
+    $consulta2 = "UPDATE Espacio SET MaxProd = "$MaxEspacio", CantProd + 1;"
 }
 
 
