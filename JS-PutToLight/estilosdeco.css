@@ -29,7 +29,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.contenedor .btncam {
+.contenedor .btnn {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -41,6 +41,11 @@ body {
     cursor: pointer;
 }
 
-.contenedor .btncam:hover {
+.contenedor .btnn:hover {
     background: #3e14b2;
+}
+
+.header1 {
+    display: flex;
+    justify-content: center;
 }
