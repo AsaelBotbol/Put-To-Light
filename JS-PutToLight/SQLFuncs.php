@@ -27,7 +27,12 @@ function AddProd ($newQrCode, $nombre, $MaxEspacio){
 
     $consulta = "INSERT INTO Producto (NombreProd, QRCode) VALUES ("$nombre", "$newQrCode");";
     $consulta2 = "UPDATE Espacio SET MaxProd = "$MaxEspacio", CantProd + 1;"
+
+    $comando = pg_query($conexion, $consulta);
+    $comando2 = pg_query($conexion, $consulta2);
 }
+
+public PD0::beginTransaction():bool
 
 
 ?>
