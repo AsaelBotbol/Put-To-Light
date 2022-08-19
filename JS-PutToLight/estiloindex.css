@@ -51,7 +51,7 @@ body {
     margin-bottom: 20px;
 }
 
-.contenedor .btndeco {
+.contenedor .iniciar {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -63,28 +63,20 @@ body {
     cursor: pointer;
 }
 
-.contenedor .btndeco:hover {
+.contenedor .iniciar:hover {
     background: #3e14b2;
     background-image: linear-gradient(135deg, #0087D4, #505488, #2F3F80, #5b3e74, #5A4894, #A950A1, #FF7CAE);
     background-size: 500%;
     animation: fanimado 10s infinite;
 }
 
-.contenedor .btnscann {
+.controls {
     width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
+    background-color: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-size: 18px;
     color: white;
-    margin: 16px 0;
-    font-size: 16px;
-    border-radius: 100px;
-    cursor: pointer;
-}
-
-.contenedor .btnscann:hover {
-    background: #3e14b2;
-    background-image: linear-gradient(135deg, #0087D4, #505488, #2F3F80, #5b3e74, #5A4894, #A950A1, #FF7CAE);
-    background-size: 500%;
-    animation: fanimado 10s infinite;
 }
