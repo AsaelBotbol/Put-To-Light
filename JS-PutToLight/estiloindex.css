@@ -64,7 +64,7 @@ body {
 }
 
 .contenedor .iniciar:hover {
-    background: #3e14b2;
+    background: #0087D4;
     box-shadow: 0 0 15px #0087D4;
 }
 
@@ -77,5 +77,4 @@ body {
     border: 1px solid #1f53c5;
     font-size: 18px;
     color: white;
-    box-shadow: 0 0 15px #1f53c5;
 }
