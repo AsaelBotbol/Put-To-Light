@@ -85,4 +85,25 @@ body {
     box-shadow: 0 0 15px #0087D4;
 }
 
-.logout {}
+.fuera{
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.fuera .logout {
+    width: 100%;
+    background: #884d4d;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.fuera .logout:hover{
+    background: #2c3d47;
+    box-shadow: 0 0 15px #0087D4;
+}
