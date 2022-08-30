@@ -1,19 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
     const Pass1 = document.getElementById("contra");
     const Pass2 = document.getElementById("contracon");
+    const Usu = document.getElementById("Usuario");
     const pan = document.getElementById("span");
+    const iniciar = document.getElementById("iniciar");
 
-    document.addEventListener("keydown", () => {
-        pan.innerHTML = input.value;
-        document.addEventListener("keydown", (event) => {
-            if (KeyboardEvent.keyCode == "Enter") {
-                if (Pass1 === Pass2) {
+    Pass2.addEventListener("keydown", event => {
+        console.log(event.key);
+        if (event.key == "Enter") {
+            console.log("Apreto Enter");
+            enviarForm();
+        }
+    })
+
+    iniciar.addEventListener("onclick", () => {
+        enviarForm();
+    })
+
+    function enviarForm() {
+        console.log();
+        if (Usu.value === "") {
+            pan.innerText = "No ingresaste ningun usuario"
+            pan.style.color = "red";
+        } else {
+            if (Pass1.value === "" || Pass2.value === "") {
+                pan.innerText = "No ingresaste ninguna contraseña"
+                pan.style.color = "red";
+            } else {
+                if (Pass1.value === Pass2.value) {
                     //Acá poné el code para cambiar de pestaña al index
+                    pan.innerText = "";
+                    window.open('index.html', '_self').focus()
+                    console.log("aña");
                 } else {
                     pan.style.color = "red";
                     pan.innerText = "Las contraseñas no coinciden";
                 }
+
             }
-        })
-    })
+        }
+    }
 })

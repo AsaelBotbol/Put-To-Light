@@ -51,7 +51,7 @@ body {
     margin-bottom: 20px;
 }
 
-.contenedor .iniciar {
+.contenedor #iniciar {
     width: 100%;
     background: #1f53c5;
     border: none;
