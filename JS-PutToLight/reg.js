@@ -19,16 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function enviarForm() {
         console.log();
-        if (Usu.value === "") {
-            pan.innerText = "No ingresaste ningun usuario"
+        if (Usu.value === "" & Pass1.value === "" & Pass2.value === "") {
+            pan.innerText = "No ingresaste ningun valor"
             pan.style.color = "red";
         } else {
-            if (Pass1.value === "" || Pass2.value === "") {
+            if (Pass1.value === "" & Pass2.value === "") {
                 pan.innerText = "No ingresaste ninguna contraseña"
                 pan.style.color = "red";
             } else {
                 if (Pass1.value === Pass2.value) {
-                    //Acá poné el code para cambiar de pestaña al index
                     pan.innerText = "";
                     window.open('index.html', '_self').focus()
                     console.log("aña");
