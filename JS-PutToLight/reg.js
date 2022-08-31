@@ -18,25 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     function enviarForm() {
-        console.log();
         if (Usu.value === "" & Pass1.value === "" & Pass2.value === "") {
             pan.innerText = "No ingresaste ningun valor"
             pan.style.color = "red";
+        } else if (Pass1.value === "" & Pass2.value === "") {
+            pan.innerText = "No ingresaste ninguna contraseña"
+            pan.style.color = "red";
+        } else if (Usu.value === "") {
+            pan.innerText = "No ingresaste ningun usuario"
+            pan.style.color = "red";
+        } else if (Pass1.value !== Pass2.value) {
+            pan.innerText = "Las contraseñas no coinciden"
+            pan.style.color = "red";
         } else {
-            if (Pass1.value === "" & Pass2.value === "") {
-                pan.innerText = "No ingresaste ninguna contraseña"
-                pan.style.color = "red";
-            } else {
-                if (Pass1.value === Pass2.value) {
-                    pan.innerText = "";
-                    window.open('index.html', '_self').focus()
-                    console.log("aña");
-                } else {
-                    pan.style.color = "red";
-                    pan.innerText = "Las contraseñas no coinciden";
-                }
-
-            }
+            window.open('index.html');
         }
     }
 })
