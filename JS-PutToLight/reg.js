@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
-    iniciar.addEventListener("onclick", () => {
+    iniciar.addEventListener("click", () => {
+        console.log('hola')
         enviarForm();
     })
 
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pan.innerText = "Las contraseñas no coinciden"
             pan.style.color = "red";
         } else {
-            window.open('index.html');
+            window.open('index.html', "_self");
         }
     }
 })
