@@ -22,15 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Usu.value === "" & Pass1.value === "" & Pass2.value === "") {
             pan.innerText = "No ingresaste ningun valor"
             pan.style.color = "red";
+            Usuario.style.borderColor = "red";
+            contra.style.borderColor = "red";
+            contracon.style.borderColor = "red";
         } else if (Pass1.value === "" & Pass2.value === "") {
             pan.innerText = "No ingresaste ninguna contraseña"
             pan.style.color = "red";
+            contra.style.borderColor = "red";
         } else if (Usu.value === "") {
             pan.innerText = "No ingresaste ningun usuario"
             pan.style.color = "red";
+            Usuario.style.borderColor = "red";
         } else if (Pass1.value !== Pass2.value) {
             pan.innerText = "Las contraseñas no coinciden"
             pan.style.color = "red";
+            contracon.style.borderColor = "red";
         } else {
             window.open('index.html', "_self");
         }
