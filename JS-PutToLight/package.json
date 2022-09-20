@@ -1,0 +1,12 @@
+{
+  "name": "js-puttolight",
+  "version": "1.0.0",
+  "description": "",
+  "main": "MySQL.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon MySQL.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
