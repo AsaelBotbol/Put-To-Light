@@ -32,6 +32,5 @@ async function Logearse(usuario, contra){
 async function GetQRC(nombre){
     let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, [nombre]);
-    let strconsulta2 = ""
     if (promesa instanceof Error) return promesa.ToString();
 } // Todavía falta terminar

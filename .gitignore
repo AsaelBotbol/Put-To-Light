@@ -1,0 +1,15 @@
+
+*.cmd
+JS-PutToLight/node_modules/.bin/mime
+*.ps1
+*.json
+*.md
+JS-PutToLight/node_modules/accepts/index.js
+JS-PutToLight/node_modules/accepts/LICENSE
+JS-PutToLight/node_modules/array-flatten/array-flatten.js
+JS-PutToLight/node_modules/array-flatten/LICENSE
+*.ts
+*.accdb
+*.accdb
+JS-PutToLight/Database.accdb
+JS-PutToLight/package.json
