@@ -4,9 +4,13 @@
   "description": "",
   "main": "MySQL.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node MySQL.js",
     "dev": "npx nodemon MySQL.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
+  }
 }

@@ -5,7 +5,7 @@ const poolCon = mysql.createPool({
     user    : "root",
     password: "rootroot",
     database: "PTLdb"
-})
+});
 
 async function QueryIn(string, values){
     return await new Promise((respuesta, fallo) => {
@@ -17,10 +17,21 @@ async function QueryIn(string, values){
 }
 
 async function Reg(usuario, contra){
-    let strconsulta = ""
+    let strconsulta = "INSERT INTO Usuario (Nombre, Pass) VALUES (?, ?)";
+    let promesa = await QueryIn(strconsulta, [usuario, contra]);
+    if (promesa instanceof Error) 
+    return promesa.ToString(); //promesa (en caso de error) es un objeto, y quiero que me devuelva un string
 }
 
 async function Logearse(usuario, contra){
-    let strconsulta = "SELECT * FROM Usuario WHERE Nombre = ? AND Pass = ?";
+    let strconsulta = "SELECT 1 FROM Usuario WHERE Nombre = ? AND Pass = ?"; 
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
+    if (promesa instanceof Error) return promesa.ToString();
 }
+
+async function GetQRC(nombre){
+    let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
+    let promesa = await QueryIn(strconsulta, [nombre]);
+    let strconsulta2 = ""
+    if (promesa instanceof Error) return promesa.ToString();
+} // Todavía falta terminar
