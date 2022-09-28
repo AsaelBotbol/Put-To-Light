@@ -33,4 +33,32 @@ async function GetQRC(nombre){
     let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, [nombre]);
     if (promesa instanceof Error) return promesa.ToString();
-} // Todavía falta terminar
+}
+
+async function AddProd(nombre, code){
+    let strconsulta = "INSERT INTO Prod (ProdNom, CodQR) VALUES (?, ?)";
+    let promesa = await QueryIn(strconsulta, [nombre, code]);
+    if (promesa instanceof Error) return promesa.ToString();
+}
+
+async function PutProd(code){
+    let strconsulta = "SELECT ProdNom FROM Prod WHERE CodQR = ?";
+    let promesa = await QueryIn(strconsulta, code);
+    if (promesa instanceof Error) return promesa.ToString();
+
+    let strconsulta2 = "UPDATE Espacio SET CantProd+1 WHERE ProdNom = ?";
+    let promesa2 = await QueryIn(strconsulta2, promesa2);
+    if (promesa2 instanceof Error) return promesa2.ToString();
+}
+
+async function RemProd(code){
+    let strconsulta = "SELECT ProdNom FROM Prod WHERE CodQR = ?";
+    let promesa = await QueryIn(strconsulta, code);
+    if (promesa instanceof Error) return promesa.ToString();
+
+    let strconsulta2 = "UPDATE Espacio SET CantProd-1 WHERE ProdNom = ?";
+    let promesa2 = await QueryIn(strconsulta2, promesa2);
+    if (promesa2 instanceof Error) return promesa2.ToString();
+}
+
+async function 
