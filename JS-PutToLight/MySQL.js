@@ -66,3 +66,5 @@ async function RemProd(code){
     // console.log("Query sent at: " + req.ReqTime);
     if (promesa2 instanceof Error) return promesa2.ToString();
 }
+
+//module.export a las funciones
