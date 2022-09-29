@@ -5,7 +5,6 @@ const port = 9000;
 var ReqTime = function (req, res){
     req.ReqTime = Date.now();
 }
-
 app.use(ReqTime);
 
 app.listen(port, () =>{
