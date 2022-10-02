@@ -2,16 +2,12 @@ const express = require("express");
 const app = express();
 const port = 9000;
 
-var ReqTime = function (req, res){
-    req.ReqTime = Date.now();
-}
-app.use(ReqTime);
-
 app.get("/", (req, res) => {
+    console.log("Request sent at: ", Date.now());
     res.send("Hello World!");
-    console.log("Request sent at: ", req.reqTime);
 });
 
 app.listen(port, () =>{
     console.log(`Server running on http://localhost:${port}`);
+    // console.log("Server started at " + Date.now());
 });
