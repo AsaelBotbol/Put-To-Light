@@ -7,6 +7,11 @@ var ReqTime = function (req, res){
 }
 app.use(ReqTime);
 
+app.get("/", (req, res) => {
+    res.send("Hello World!");
+    console.log("Request sent at: ", req.reqTime);
+});
+
 app.listen(port, () =>{
-    console.log(`Server running on https://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
