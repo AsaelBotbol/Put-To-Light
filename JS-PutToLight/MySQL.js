@@ -1,3 +1,5 @@
+"use strict";
+
 const mysql = require("mysql");
 
 const PoolCon = mysql.createPool({
@@ -73,3 +75,5 @@ async function RemProd(code){
 }
 
 //module.export a las funciones
+
+module.exports = { Reg, Logearse, GetQRC, AddProd, PutProd, RemProd };
