@@ -4,8 +4,8 @@
   "description": "",
   "main": "MySQL.js",
   "scripts": {
-    "start": "node MySQL.js",
-    "dev": "npx nodemon MySQL.js"
+    "start": "node prueba.js",
+    "dev": "npx nodemon prueba.js"
   },
   "author": "",
   "license": "ISC",
