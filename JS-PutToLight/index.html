@@ -7,15 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Put to Light</title>
 
+    <script defer src="login.js"></script>
+
     <link rel="stylesheet" href="estiloindex.css">
 </head>
 
 <body>
-    <label class="switch">
-        <p>Modo simple:</p>
-        <input type="checkbox">
-        <span class="slider"></span>
-      </label>
     <div class="contenedor">
         <!--Titulos-->
         <header class="header2">
@@ -27,13 +24,26 @@
         <div class="iniciarsesion">
             <h3></h3>
 
-            <input class="controls" type="text" name="mail" id="mail" placeholder="Ingrese su nombre de usuario:">
+            <input class="controls" type="text" name="mail" id="usua" placeholder="Ingrese su nombre de usuario:">
             <input class="controls" type="password" name="contra" id="contra" placeholder="Ingrese su contraseña:">
 
-            <button class="iniciar" type="button" onclick="window.open('menu.html', '_self').focus()">Iniciar sesión</button>
+            <button class="inicia" id="iniciar2" type="button">Iniciar sesión</button>
+
+            <span id="span2"></span>
+
         </div>
         <br>
         <a class="textoreg" href="registro.html">No tenes cuenta? Creala aca</a>
+
+        <br>
+        <br>
+        <br>
+
+        <label class="switch">
+            <p>Modo simple:</p>
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
     </div>
 
     <div class="background-image"></div>

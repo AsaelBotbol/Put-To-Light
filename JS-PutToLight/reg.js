@@ -5,6 +5,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const pan = document.getElementById("span");
     const iniciar = document.getElementById("iniciar");
 
+
+    Usu.addEventListener("keydown", event => {
+        console.log(event.key);
+        if (event.key == "Enter") {
+            console.log("Apreto Enter");
+            enviarForm();
+        }
+    })
+
+    Pass1.addEventListener("keydown", event => {
+        console.log(event.key);
+        if (event.key == "Enter") {
+            console.log("Apreto Enter");
+            enviarForm();
+        }
+    })
+
     Pass2.addEventListener("keydown", event => {
         console.log(event.key);
         if (event.key == "Enter") {
