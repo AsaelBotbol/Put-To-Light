@@ -11,8 +11,6 @@ const PoolCon = mysql.createPool({
 
 const express = require("express");
 const app = express();
-const tiempo = Date.now();
-const FechayHora = Date(tiempo);
 
 async function QueryIn(string, values){
     return await new Promise((respuesta, fallo) => {
@@ -26,7 +24,7 @@ async function QueryIn(string, values){
 async function Reg(usuario, contra){
     let strconsulta = "INSERT INTO Usuario (Nombre, Pass) VALUES (?, ?)";
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
-    console.log("Query sent at: ", FechayHora);
+    console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString(); 
     //promesa (en caso de error) es un objeto, y quiero que me devuelva un string
 }
@@ -34,21 +32,21 @@ async function Reg(usuario, contra){
 async function Logearse(usuario, contra){
     let strconsulta = "SELECT 1 FROM Usuario WHERE Nombre = ? AND Pass = ?"; 
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
-    console.log("Query sent at: ", FechayHora);
+    console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
 }
 
 async function GetQRC(nombre){
     let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, [nombre]);
-    console.log("Query sent at: ", FechayHora);
+    console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
 }
 
 async function AddProd(nombre, code){
     let strconsulta = "INSERT INTO Prod (ProdNom, CodQR) VALUES (?, ?)";
     let promesa = await QueryIn(strconsulta, [nombre, code]);
-    console.log("Query sent at: ", FechayHora);
+    console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
 }
 
@@ -59,7 +57,7 @@ async function PutProd(code){
 
     let strconsulta2 = "UPDATE Espacio SET CantProd+1 WHERE ProdNom = ?";
     let promesa2 = await QueryIn(strconsulta2, promesa2);
-    console.log("Query sent at: ", FechayHora);
+    console.log("Query sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
 }
 
@@ -70,10 +68,10 @@ async function RemProd(code){
 
     let strconsulta2 = "UPDATE Espacio SET CantProd-1 WHERE ProdNom = ?";
     let promesa2 = await QueryIn(strconsulta2, promesa2);
-    console.log("Query sent at: ", FechayHora);
+    console.log("Query sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
 }
 
-//module.export a las funciones
+//module.export exporta las funciones para usarlas en la api
 
 module.exports = { Reg, Logearse, GetQRC, AddProd, PutProd, RemProd };
