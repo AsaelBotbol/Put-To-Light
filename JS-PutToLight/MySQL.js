@@ -68,10 +68,9 @@ async function RemProd(code){
 
     let strconsulta2 = "UPDATE Espacio SET CantProd-1 WHERE ProdNom = ?";
     let promesa2 = await QueryIn(strconsulta2, promesa2);
-    console.log("Query sent at: ", Date(Date.now()));
+    console.log("Queries sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
 }
 
 //module.export exporta las funciones para usarlas en la api
-
 module.exports = { Reg, Logearse, GetQRC, AddProd, PutProd, RemProd };

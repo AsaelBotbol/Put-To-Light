@@ -5,12 +5,12 @@ const port = 9000;
 const crypto = require("crypto-js");
 
 const cifrar = (texto) => {
-    let textocifrado = crypto.AES.encrypt(texto, "ojala").toString();
+    let textocifrado = crypto.AES.encrypt(texto, "U2FsdGVkX1/wowNpzf77abWeeCCSm8G77Bo+l3MjhFk=").toString();
     return textocifrado;
 }
 
 const descifrar = (texto) => {
-    let bytes = crypto.AES.decrypt(texto, "ojala");
+    let bytes = crypto.AES.decrypt(texto, "U2FsdGVkX1/wowNpzf77abWeeCCSm8G77Bo+l3MjhFk=");
     let textodescifrado = bytes.toString(crypto.enc.Utf8);
     return textodescifrado;
 }
@@ -20,7 +20,7 @@ const funciones = require("./MySQL.js");
 
 app.get("/", (req, res) => {
     console.log("Request sent at: ", Date(Date.now()));
-    res.send(cifrar("Hello World!") + "\n" + descifrar(cifrar("Hello World!")));
+    res.send(cifrar("Mandarina"), "\n", descifrar(cifrar("Mandarina")));
 });
 
 app.post("/index.html", (req, res) => {
