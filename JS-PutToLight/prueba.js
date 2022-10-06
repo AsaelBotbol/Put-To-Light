@@ -15,12 +15,12 @@ const descifrar = (texto) => {
     return textodescifrado;
 }
 
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const funciones = require("./MySQL.js");
 
 app.get("/", (req, res) => {
     console.log("Request sent at: ", Date(Date.now()));
-    res.send(cifrar("Mandarina"), "\n", descifrar(cifrar("Mandarina")));
+    res.send(Date(Date.now()));
 });
 
 app.post("/index.html", (req, res) => {
@@ -29,8 +29,15 @@ app.post("/index.html", (req, res) => {
     const contra = cifrar(req.body.contra);
 
     funciones.Reg(usuario, contra);
+
+    
+});
+
+app.get("/decodificador.html", (req, res) => {
+    
 });
 
 app.listen(port, () =>{
     console.log(`Server running on http://localhost:${port}/`);
 });
+
