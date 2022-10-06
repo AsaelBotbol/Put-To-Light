@@ -1,6 +1,6 @@
 "use strict";
 
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 const PoolCon = mysql.createPool({
     host    : "localhost",

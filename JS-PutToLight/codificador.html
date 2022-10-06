@@ -17,6 +17,14 @@
 </head>
 
 <body>
+    <script>
+        const alphanum = (texto) => {
+            let NotSpecial = /^[0-9a-zA-z]+$/;
+            if(texto.value.match(NotSpecial)) return true;
+  
+            alert("No podés ingresar caracteres especiales en el nombre");
+        } 
+    </script>
     <br>
     <div class="contenedor">
         <!--Titulo-->
