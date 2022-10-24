@@ -1,1 +1,9 @@
-GET http://localhost:9000/
+POST http://localhost:9000/index.html HTTP/1.1
+Content-Length: 50
+Content-Type: application/json
+Accept: application/json
+
+{
+    "usuario": "ferdinand",
+    "contrasenia": "pablo"
+}
