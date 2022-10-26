@@ -35,9 +35,9 @@ async function Logearse(usuario, contra){
     else return promesa;
 }
 
-async function GetQRC(nombre){
-    let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
-    let promesa = await QueryIn(strconsulta, [nombre]);
+async function GetProd(code){
+    let strconsulta = "SELECT ProdNom FROM Prod WHERE CodQR = ?";
+    let promesa = await QueryIn(strconsulta, [code]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
     else return promesa;
@@ -52,16 +52,16 @@ async function AddProd(nombre, code){
 }
 
 async function PutProd(code){
-    let strconsulta = "SELECT ProdNom FROM Prod WHERE CodQR = ?";
+    let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, code);
     if (promesa instanceof Error) return promesa.ToString();
 
-    let strconsulta2 = "UPDATE Espacio SET CantProd+1 WHERE ProdNom = ?";
+    let strconsulta2 = "UPDATE Espacio SET CantProd+1 WHERE CodQR = ?";
     let promesa2 = await QueryIn(strconsulta2, promesa);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
-
-    else return promesa2;
+    console.log("Query completed at: ", Date(Date.now()));
+    return("messi");
 }
 
 async function RemProd(code){
@@ -73,9 +73,8 @@ async function RemProd(code){
     let promesa2 = await QueryIn(strconsulta2, promesa);
     console.log("Queries sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
-
-    else return promesa2;
+    return ("tumama");
 }
 
 //module.export exporta las funciones para usarlas en la api
-module.exports = { Reg, Logearse, GetQRC, AddProd, PutProd, RemProd };
+module.exports = { Reg, Logearse, GetProd, AddProd, PutProd, RemProd };

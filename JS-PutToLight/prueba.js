@@ -20,11 +20,7 @@ const descifrar = (texto) => {
 const mysql = require("mysql2");
 const funcs = require("./MySQLFuncs.js");
 
-app.get("/", (req, res) => {
-    console.log("Request sent at: ", Date(Date.now()));
-    res.send(Date(Date.now()));
-});
-
+// Esto es el login, mandame el usuario y la contraseña que ponga en las textboxes
 app.post("/index.html", (req, res) => {
     //Encriptar los datos con crypto-js 
     let usuario = cifrar(req.body.usuario);
@@ -38,23 +34,26 @@ app.post("/index.html", (req, res) => {
     });
 });
 
+// Acá me mandas el usuario y la contraseña que va a registrar
 app.post("/registro.html", (req, res) => {
     let usuario = cifrar(req.body.usuario);
     let contra = cifrar(req.body.contrasenia);
 
     let peponsio = funcs.Reg(usuario, contra)
     .then((resultado) => {
-        if(resultado){
-        res.send("Usuario registrado");
-        }
+        if (resultado) { res.send("Usuario registrado"); }
     });
 });
 
+// Acá me mandas el número que guarda el código QR que scaneas 
 app.get("/decodificador.html", (req, res) => {
-   let code = req.body.code;
-    let peponsio = funcs.GetQRC(code)
+    let code = req.body.code;
+    let peponsio = funcs.GetProd(code)
     .then((resultado) => {
-        res.send(resultado);
+        let qsy = funcs.PutProd(resultado)
+        .then((res)=> {
+            res.send(res);
+        })
     });
 });
 
