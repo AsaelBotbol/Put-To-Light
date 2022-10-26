@@ -29,17 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
         if (Usua.value === "" & Pass.value === "") {
             pan.innerText = "No ingresaste ningun valor"
             pan.style.color = "red";
-            Usuario.style.borderColor = "red";
-            contra.style.borderColor = "red";
+            Usua.style.borderColor = "red";
+            Pass.style.borderColor = "red";
             contracon.style.borderColor = "red";
         } else if (Usua.value === "") {
             pan.innerText = "No ingresaste ningun usuario"
             pan.style.color = "red";
-            Usuario.style.borderColor = "red";
+            Usua.style.borderColor = "red";
         } else if (Pass.value === "") {
             pan.innerText = "No ingresaste ninguna contraseña"
             pan.style.color = "red";
-            Usuario.style.borderColor = "red";
+            Pass.style.borderColor = "red";
         } else {
             window.open('menu.html', "_self");
         }
