@@ -25,7 +25,6 @@ enviarReg.addEventListener("click", () => {
             nombre: nombreUsuario.value
         })
     })
-
 })
 
 //logIn

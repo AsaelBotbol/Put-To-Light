@@ -48,19 +48,24 @@ app.post("/registro.html", (req, res) => {
 // Acá me mandas el número que guarda el código QR que scaneas 
 app.put("/decodificador.html", (req, res) => {
     let code = req.body.codigo;
-    let peponsio = funcs.GetProd(code)
+    let rp = funcs.GetProd(code)
     .then((resultado) => {
         let qsy = funcs.RemProd(resultado)
         .then((ress) => {
             res.send(ress);
         });
     });
+
+    let pp = funcs.GetProd(code)
+    .then((resultado) => {
+        let qsy = funcs.PutProd(resultado)
+        .then((ress) => {res.send(ress)});
+    });
 });
 
-/* 
-decopp.html es algo que tengo q discutir con asa, que
+/* decopp.html es algo que tengo q discutir con asa, que
 es para poner productos, en lugar de sacarlos
-*/
+
 app.put("/decopp.html", (req, res) => {
     let code = req.body.codigo;
     let peponsio = funcs.GetProd(code)
@@ -70,9 +75,11 @@ app.put("/decopp.html", (req, res) => {
             res.send(ress);
         });
     });
+}); */
+
+app.post("codificador.html", (req, res) => {
+    let 
 });
-
-
 
 app.listen(port, () =>{
     console.log(`Server running on http://localhost:${port}/`);
