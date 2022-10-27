@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 9000;
 
-const cors = require ('cors');
+const cors = require('cors');
 app.use(cors());
 
 var corsConfig = {
@@ -12,6 +12,14 @@ var corsConfig = {
 app.use(cors(corsConfig));
 
 app.use(express.json());
+
+app.get("/", () => {
+
+    // let mesi = cifrar("sexo")
+    // console.log(mesi);
+    console.log(descifrar("U2FsdGVkX1/TAddgTW9gN97flP/6TeVFLtvR7A+JBJ0="));
+
+})
 
 const crypto = require("crypto-js");
 
@@ -37,10 +45,10 @@ app.post("/index.html", (req, res) => {
 
     //Usar la función declarada en MySQLFuncs.js
     const peponsio = funcs.Logearse(usuario, contra)
-    .then((resultado) => {
-        if (resultado === false) res.send("Usuario o contraseña incorrectos");
-        else res.send("Usuario logeado");
-    });
+        .then((resultado) => {
+            if (resultado === false) res.send("Usuario o contraseña incorrectos");
+            else res.send("Usuario logeado");
+        });
 });
 
 // Acá me mandas el usuario y la contraseña que va a registrar
@@ -49,27 +57,27 @@ app.post("/registro.html", (req, res) => {
     let contra = cifrar(req.body.contrasenia);
 
     let peponsio = funcs.Reg(usuario, contra)
-    .then((resultado) => {
-        if (resultado) res.send("Usuario registrado");
-    });
+        .then((resultado) => {
+            if (resultado) res.send("Usuario registrado");
+        });
 });
 
 // Acá me mandas el número que guarda el código QR que scaneas 
 app.put("/decodificador.html", (req, res) => {
     let code = req.body.codigo;
     var rp = funcs.GetProd(code)
-    .then((resultado) => {
-        let qsy = funcs.RemProd(resultado)
-        .then((ress) => {
-            res.send(ress);
+        .then((resultado) => {
+            let qsy = funcs.RemProd(resultado)
+                .then((ress) => {
+                    res.send(ress);
+                });
         });
-    });
 
     var pp = funcs.GetProd(code)
-    .then((resultado) => {
-        let UseFunc = funcs.PutProd(resultado)
-        .then((ress) => {res.send(ress)});
-    });
+        .then((resultado) => {
+            let UseFunc = funcs.PutProd(resultado)
+                .then((ress) => { res.send(ress) });
+        });
 });
 
 /* decopp.html es algo que tengo q discutir con asa, que
@@ -90,12 +98,13 @@ app.post("codificador.html", (req, res) => {
     let nombre = req.body.nombre;
     let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre, code)
-    .then((resultado) => {
-        if (resultado) res.send("Producto agregado exitosamente");
-    });
+        .then((resultado) => {
+            if (resultado) res.send("Producto agregado exitosamente");
+        });
 });
 
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
 });
 
+module.export = { cifrar, descifrar };

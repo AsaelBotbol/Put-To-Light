@@ -6,3 +6,5 @@ Accept: application/json
     "codigo": "12345",
     "nombre": "repampanos"
 }
+
+GET http://localhost:9000/ HTTP/1.1

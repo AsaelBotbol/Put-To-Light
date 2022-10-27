@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+const crypto = require("./prueba.js");
+
+ocument.addEventListener("DOMContentLoaded", () => {
     const Usua = document.getElementById("usua");
     const Pass = document.getElementById("contra");
     const pan = document.getElementById("span2");
@@ -41,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pan.style.color = "red";
             Pass.style.borderColor = "red";
         } else {
-            window.open('menu.html', "_self");
+            crypto.descifrar
         }
     }
 })
