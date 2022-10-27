@@ -2,6 +2,15 @@ const express = require("express");
 const app = express();
 const port = 9000;
 
+const cors = require ('cors');
+app.use(cors());
+
+var corsConfig = {
+    origin: ["http://localhost:9000/", "http://localhost:5500", "http://127.0.0.1:5500"],
+    optionsSuccessStatus: 200
+}
+app.use(cors(corsConfig));
+
 app.use(express.json());
 
 const crypto = require("crypto-js");
@@ -48,7 +57,7 @@ app.post("/registro.html", (req, res) => {
 // Acá me mandas el número que guarda el código QR que scaneas 
 app.put("/decodificador.html", (req, res) => {
     let code = req.body.codigo;
-    let rp = funcs.GetProd(code)
+    var rp = funcs.GetProd(code)
     .then((resultado) => {
         let qsy = funcs.RemProd(resultado)
         .then((ress) => {
@@ -56,9 +65,9 @@ app.put("/decodificador.html", (req, res) => {
         });
     });
 
-    let pp = funcs.GetProd(code)
+    var pp = funcs.GetProd(code)
     .then((resultado) => {
-        let qsy = funcs.PutProd(resultado)
+        let UseFunc = funcs.PutProd(resultado)
         .then((ress) => {res.send(ress)});
     });
 });
@@ -78,7 +87,12 @@ app.put("/decopp.html", (req, res) => {
 }); */
 
 app.post("codificador.html", (req, res) => {
-    let 
+    let nombre = req.body.nombre;
+    let code = cifrar(req.body.codigo);
+    let UseFunc = funcs.AddProd(nombre, code)
+    .then((resultado) => {
+        if (resultado) res.send("Producto agregado exitosamente");
+    });
 });
 
 app.listen(port, () =>{

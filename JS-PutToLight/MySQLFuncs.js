@@ -19,7 +19,7 @@ async function QueryIn(string, values){
 }
 
 async function Reg(usuario, contra){
-    let strconsulta = "INSERT INTO Usuario (Nombre, Pass) VALUES (?, ?)";
+    let strconsulta = "INSERT INTO Usuario (usuario, pass) VALUES (?, ?)";
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString(); 
@@ -28,7 +28,7 @@ async function Reg(usuario, contra){
 }
 
 async function Logearse(usuario, contra){
-    let strconsulta = "SELECT 1 FROM Usuario WHERE Nombre = ? AND Pass = ?"; 
+    let strconsulta = "SELECT 1 FROM Usuario WHERE usuario = ? AND Pass = ?"; 
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
@@ -48,7 +48,8 @@ async function AddProd(nombre, code){
     let promesa = await QueryIn(strconsulta, [nombre, code]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
-    else return promesa;
+    console.log("Product ", nombre, " added successfully");
+    return true;
 }
 
 async function PutProd(code){
