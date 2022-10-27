@@ -53,9 +53,32 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (Pass1.value !== Pass2.value) {
             pan.innerText = "Las contraseñas no coinciden"
             pan.style.color = "red";
+            contra.style.borderColor = "red";
             contracon.style.borderColor = "red";
         } else {
-            window.open('index.html', "_self");
+            //register
+            iniciar.addEventListener("click", () => {
+                fetch('http://localhost:9000/registro.html', {
+                        method: "POST",
+                        headers: {
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email: Usu.value,
+                            contrasenia: Pass1.value
+                        })
+                    })
+                    .then(response => {
+                        if (response.status === 200) {
+                            // se creo el usuario
+                            window.open('index.html', "_self");
+                        } else {
+                            pan.innerText = "Ha ocurrido un error inesperado"
+                            pan.style.color = "red";
+                        }
+                    })
+            })
         }
     }
 })
