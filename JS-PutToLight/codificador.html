@@ -19,11 +19,11 @@
 <body>
     <script>
         const alphanum = (texto) => {
-            let NotSpecial = /^[0-9a-zA-z]+$/;
-            if(texto.value.match(NotSpecial)) return true;
-  
+            let NotSpecial = /^[0-9a-zA-Z]+$/;
+            if (texto.value.match(NotSpecial)) return true;
+
             alert("No podés ingresar caracteres especiales en el nombre");
-        } 
+        }
     </script>
     <br>
     <div class="contenedor">
@@ -41,7 +41,7 @@
             <h3>Codificador de QR:</h3>
             <br>
             <form action="" id="formulario" class="formulario">
-                <input type="text" id="link" placeholder="Asignacion de ID a objeto:" />
+                <input type="text" id="link" placeholder="Objeto:" />
                 <button class="btn">Generar QR</button>
             </form>
             <div id="contenedorQR" class="contenedorQR"></div>
