@@ -44,6 +44,7 @@ ocument.addEventListener("DOMContentLoaded", () => {
             Pass.style.borderColor = "red";
         } else {
             crypto.descifrar
+            window.location.href = "menu.html";
         }
     }
 })

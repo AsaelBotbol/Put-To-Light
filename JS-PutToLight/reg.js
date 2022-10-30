@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     iniciar.addEventListener("click", () => {
-        console.log('hola')
+        console.log('apretó boton')
         enviarForm();
     })
 
