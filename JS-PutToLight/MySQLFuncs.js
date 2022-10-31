@@ -55,31 +55,35 @@ async function AddProd(nombre){
         console.log("Product ", nombre, " added successfully");
         return true;
     }
+
+    else return ("Error: Product already exists");
 }
 
-async function PutProd(code){
-    let strconsulta = "SELECT CodQR FROM Prod WHERE ProdNom = ?";
-    let promesa = await QueryIn(strconsulta, code);
+async function PutProd(nombre){
+    let strconsulta = "SELECT id FROM Prod WHERE ProdNom = ?";
+    let promesa = await QueryIn(strconsulta, nombre);
     if (promesa instanceof Error) return promesa.ToString();
 
-    let strconsulta2 = "UPDATE Espacio SET CantProd+1 WHERE CodQR = ?";
+    let strconsulta2 = "UPDATE Espacio SET CantProd+1 WHERE id_Prods = ?";
     let promesa2 = await QueryIn(strconsulta2, promesa);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
     console.log("Query completed at: ", Date(Date.now()));
-    return("messi");
+    console.log("Product ", nombre, " amount updated successfully");
+    return true;
 }
 
-async function RemProd(code){
-    let strconsulta = "SELECT ProdNom FROM Prod WHERE CodQR = ?";
-    let promesa = await QueryIn(strconsulta, code);
+async function RemProd(nombre){
+    let strconsulta = "SELECT id FROM Prod WHERE ProdNom = ?";
+    let promesa = await QueryIn(strconsulta, nombre);
     if (promesa instanceof Error) return promesa.ToString();
 
-    let strconsulta2 = "UPDATE Espacio SET CantProd-1 WHERE ProdNom = ?";
+    let strconsulta2 = "UPDATE Espacio SET CantProd-1 WHERE id = ?";
     let promesa2 = await QueryIn(strconsulta2, promesa);
     console.log("Queries sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
-    return ("tumama");
+    console.log("Product ", nombre, " removed successfully");
+    return true;
 }
 
 //module.export exporta las funciones para usarlas en la api

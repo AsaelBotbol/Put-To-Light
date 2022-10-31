@@ -9,17 +9,14 @@ var corsConfig = {
     origin: ["http://localhost:9000/", "http://localhost:5500", "http://127.0.0.1:5500"],
     optionsSuccessStatus: 200
 }
+
 app.use(cors(corsConfig));
 
 app.use(express.json());
 
 app.get("/", () => {
-
-    // let mesi = cifrar("sexo")
-    // console.log(mesi);
-    console.log(descifrar("U2FsdGVkX1/TAddgTW9gN97flP/6TeVFLtvR7A+JBJ0="));
-
-})
+    console.log("Hello World!");
+});
 
 const crypto = require("crypto-js");
 
@@ -46,8 +43,11 @@ app.post("/index.html", (req, res) => {
     //Usar la función declarada en MySQLFuncs.js
     const peponsio = funcs.Logearse(usuario, contra)
         .then((resultado) => {
-            if (resultado === false) res.send("Usuario o contraseña incorrectos");
-            else res.send("Usuario logeado");
+            if (resultado === false) {res.send("Usuario o contraseña incorrectos");
+            res.sendStatus(400);}
+
+            else {res.send("Usuario logeado");
+            res.sendStatus(200);}
         });
 });
 
@@ -58,53 +58,61 @@ app.post("/registro.html", (req, res) => {
 
     let peponsio = funcs.Reg(usuario, contra)
         .then((resultado) => {
-            if (resultado) res.send("Usuario registrado");
+            if (resultado) {
+            res.send("Usuario registrado");
+            res.sendStatus(200); }
+
+            else {res.send("Error: Usuario ya registrado");
+            res.sendStatus(400);}
         });
 });
 
 // Acá me mandas el número que guarda el código QR que scaneas
 app.put("/decodificador.html", (req, res) => {
-    let code = req.body.codigo;
-    var rp = funcs.GetProd(code)
+    let nombre = req.body.nombre;
+    var rp = funcs.GetProd(nombre)
         .then((resultado) => {
-            let qsy = funcs.RemProd(resultado)
+            let si = funcs.RemProd(resultado)
                 .then((ress) => {
+                    if(ress){
                     res.send(ress);
-                });
-        });
+                    res.sendStatus(200);}
 
-    var pp = funcs.GetProd(code)
-        .then((resultado) => {
-            let UseFunc = funcs.PutProd(resultado)
-                .then((ress) => { res.send(ress) });
+                    else {res.send("Error: Producto no encontrado");
+                    res.sendStatus(400);}
+                });
         });
 });
 
-/* decopp.html es algo que tengo q discutir con asa, que
-es para poner productos, en lugar de sacarlos
-
 app.put("/decopp.html", (req, res) => {
-    let code = req.body.codigo;
-    let peponsio = funcs.GetProd(code)
+    let nombre = req.body.nombre;
+    let peponsio = funcs.GetProd(nombre)
     .then((resultado) => {
-        let qsy = funcs.PutProd(resultado)
+        let meci = funcs.PutProd(resultado)
         .then((ress) => {
+            if (ress === true){
             res.send(ress);
+            res.sendStatus(200);}
+
+            else {res.send("Error: Producto no encontrado");
+            res.sendStatus(400);}
         });
     });
-}); */
+});
 
 app.post("codificador.html", (req, res) => {
     let nombre = req.body.nombre;
     let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre, code)
         .then((resultado) => {
-            if (resultado) res.send("Producto agregado exitosamente");
+            if (resultado === true) {res.send("Producto agregado exitosamente");
+            res.sendStatus(200);}
+
+            else {res.send("Error: Producto ya registrado");
+            res.sendStatus(400);}
         });
 });
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}/`);
 });
-
-module.export = { cifrar, descifrar };
