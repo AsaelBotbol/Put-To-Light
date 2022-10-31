@@ -15,7 +15,7 @@ app.use(cors(corsConfig));
 app.use(express.json());
 
 app.get("/", () => {
-    console.log("Hello World!");
+    console.log(descifrar("U2FsdGVkX1+bkuBRptU6iqeXd9dFYSxaYchmuWbF3Qs="));
 });
 
 const crypto = require("crypto-js");
@@ -43,11 +43,13 @@ app.post("/index.html", (req, res) => {
     //Usar la función declarada en MySQLFuncs.js
     const peponsio = funcs.Logearse(usuario, contra)
         .then((resultado) => {
-            if (resultado === false) {res.send("Usuario o contraseña incorrectos");
-            res.sendStatus(400);}
-
-            else {res.send("Usuario logeado");
-            res.sendStatus(200);}
+            if (resultado === false) {
+                res.send("Usuario o contraseña incorrectos");
+                res.sendStatus(400);
+            } else {
+                res.send("Usuario logeado");
+                res.sendStatus(200);
+            }
         });
 });
 
@@ -59,11 +61,12 @@ app.post("/registro.html", (req, res) => {
     let peponsio = funcs.Reg(usuario, contra)
         .then((resultado) => {
             if (resultado) {
-            res.send("Usuario registrado");
-            res.sendStatus(200); }
-
-            else {res.send("Error: Usuario ya registrado");
-            res.sendStatus(400);}
+                res.send("Usuario registrado");
+                res.sendStatus(200);
+            } else {
+                res.send("Error: Usuario ya registrado");
+                res.sendStatus(400);
+            }
         });
 });
 
@@ -74,12 +77,13 @@ app.put("/decodificador.html", (req, res) => {
         .then((resultado) => {
             let si = funcs.RemProd(resultado)
                 .then((ress) => {
-                    if(ress){
-                    res.send(ress);
-                    res.sendStatus(200);}
-
-                    else {res.send("Error: Producto no encontrado");
-                    res.sendStatus(400);}
+                    if (ress) {
+                        res.send(ress);
+                        res.sendStatus(200);
+                    } else {
+                        res.send("Error: Producto no encontrado");
+                        res.sendStatus(400);
+                    }
                 });
         });
 });
@@ -87,17 +91,18 @@ app.put("/decodificador.html", (req, res) => {
 app.put("/decopp.html", (req, res) => {
     let nombre = req.body.nombre;
     let peponsio = funcs.GetProd(nombre)
-    .then((resultado) => {
-        let meci = funcs.PutProd(resultado)
-        .then((ress) => {
-            if (ress === true){
-            res.send(ress);
-            res.sendStatus(200);}
-
-            else {res.send("Error: Producto no encontrado");
-            res.sendStatus(400);}
+        .then((resultado) => {
+            let meci = funcs.PutProd(resultado)
+                .then((ress) => {
+                    if (ress === true) {
+                        res.send(ress);
+                        res.sendStatus(200);
+                    } else {
+                        res.send("Error: Producto no encontrado");
+                        res.sendStatus(400);
+                    }
+                });
         });
-    });
 });
 
 app.post("codificador.html", (req, res) => {
@@ -105,11 +110,13 @@ app.post("codificador.html", (req, res) => {
     let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre, code)
         .then((resultado) => {
-            if (resultado === true) {res.send("Producto agregado exitosamente");
-            res.sendStatus(200);}
-
-            else {res.send("Error: Producto ya registrado");
-            res.sendStatus(400);}
+            if (resultado === true) {
+                res.send("Producto agregado exitosamente");
+                res.sendStatus(200);
+            } else {
+                res.send("Error: Producto ya registrado");
+                res.sendStatus(400);
+            }
         });
 });
 
