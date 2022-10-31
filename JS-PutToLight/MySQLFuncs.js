@@ -43,13 +43,18 @@ async function GetProd(code){
     else return promesa;
 }
 
-async function AddProd(nombre, code){
-    let strconsulta = "INSERT INTO Prod (ProdNom, CodQR) VALUES (?, ?)";
-    let promesa = await QueryIn(strconsulta, [nombre, code]);
-    console.log("Query sent at: ", Date(Date.now()));
-    if (promesa instanceof Error) return promesa.ToString();
-    console.log("Product ", nombre, " added successfully");
-    return true;
+async function AddProd(nombre){
+    let secuela = "SELECT 1 FROM Prod WHERE ProdNom = ?"
+    let promise = await QueryIn(secuela, [nombre]);
+    
+    if (promise === false){
+        let strconsulta = "INSERT INTO Prod (ProdNom) VALUES (?)";
+        let promesa = await QueryIn(strconsulta, [nombre]);
+        console.log("Query sent at: ", Date(Date.now()));
+        if (promesa instanceof Error) return promesa.ToString();
+        console.log("Product ", nombre, " added successfully");
+        return true;
+    }
 }
 
 async function PutProd(code){
