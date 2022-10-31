@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            email: Usu.value,
+                            usuario: Usu.value,
                             contrasenia: Pass1.value
                         })
                     })

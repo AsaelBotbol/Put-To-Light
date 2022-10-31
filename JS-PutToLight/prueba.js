@@ -62,7 +62,7 @@ app.post("/registro.html", (req, res) => {
         });
 });
 
-// Acá me mandas el número que guarda el código QR que scaneas 
+// Acá me mandas el número que guarda el código QR que scaneas
 app.put("/decodificador.html", (req, res) => {
     let code = req.body.codigo;
     var rp = funcs.GetProd(code)

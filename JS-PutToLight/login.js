@@ -1,6 +1,4 @@
-const crypto = require("./prueba.js");
-
-ocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const Usua = document.getElementById("usua");
     const Pass = document.getElementById("contra");
     const pan = document.getElementById("span2");
@@ -43,8 +41,30 @@ ocument.addEventListener("DOMContentLoaded", () => {
             pan.style.color = "red";
             Pass.style.borderColor = "red";
         } else {
-            crypto.descifrar
             window.location.href = "menu.html";
+
+            iniciar.addEventListener("click", () => {
+                fetch('http://localhost:9000/index.html', {
+                        method: "POST",
+                        headers: {
+                            "Accept": "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            usuario: Usua.value,
+                            contrasenia: Pass.value
+                        })
+                    })
+                    .then(response => {
+                        if (response.status === 200) {
+                            // usuario logeado
+                            window.open('menu.html', "_self");
+                        } else {
+                            pan.innerText = "Ha ocurrido un error inesperado"
+                            pan.style.color = "red";
+                        }
+                    })
+            })
         }
     }
 })

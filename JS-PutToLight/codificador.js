@@ -17,13 +17,13 @@ iniciar.addEventListener("click", () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                email: Usu.value,
-                contrasenia: Pass1.value
+                nombre: Usu.value,
+                codigo: Pass1.value
             })
         })
         .then(response => {
             if (response.status === 200) {
-                // se creo el usuario
+                // se mandó la info
                 location.reload();
             } else {
                 pan.innerText = "Ha ocurrido un error inesperado"
