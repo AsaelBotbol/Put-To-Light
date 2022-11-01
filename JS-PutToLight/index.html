@@ -17,11 +17,11 @@
     <script>
         const alphanum = (texto) => {
             let NotSpecial = /^[0-9a-zA-z]+$/;
-            if(texto.value.match(NotSpecial)) return true;
-        
+            if (texto.value.match(NotSpecial)) return true;
+
             alert("No podés ingresar caracteres especiales en el nombre");
-        } 
-      </script>
+        }
+    </script>
     <div class="contenedor">
         <!--Titulos-->
         <header class="header2">
@@ -33,7 +33,7 @@
         <div class="iniciarsesion">
             <h3></h3>
 
-            <input class="controls" type="text" name="mail" id="usua" placeholder="Ingrese su nombre de usuario:" >
+            <input class="controls" type="text" name="mail" id="usua" placeholder="Ingrese su nombre de usuario:">
             <input class="controls" type="password" name="contra" id="contra" placeholder="Ingrese su contraseña:">
 
             <button class="inicia" id="iniciar2" type="button">Iniciar sesión</button>
@@ -48,11 +48,11 @@
         <br>
         <br>
 
-        <label class="switch">
+        <div class="switch">
             <p>Modo simple:</p>
             <input type="checkbox">
             <span class="slider"></span>
-          </label>
+        </div>
     </div>
 
     <div class="background-image"></div>
