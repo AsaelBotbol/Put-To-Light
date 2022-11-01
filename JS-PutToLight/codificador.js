@@ -17,8 +17,8 @@ iniciar.addEventListener("click", () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nombre: Usu.value,
-                codigo: Pass1.value
+                nombre: formulario.value,
+                codigo: QR.value
             })
         })
         .then(response => {

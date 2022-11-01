@@ -35,28 +35,31 @@ const mysql = require("mysql2");
 const funcs = require("./MySQLFuncs.js");
 
 // Esto es el login, mandame el usuario y la contraseña que ponga en las textboxes
-app.post("/index.html", (req, res) => {
+app.post("/login", (req, res) => {
     //Encriptar los datos con crypto-js 
-    let usuario = cifrar(req.body.usuario);
-    let contra = cifrar(req.body.contrasenia);
+    let usuario = req.body.usuario;
+    let contra = req.body.contrasenia;
+
+    console.log(usuario, contra);
 
     //Usar la función declarada en MySQLFuncs.js
     const peponsio = funcs.Logearse(usuario, contra)
         .then((resultado) => {
-            if (resultado === false) {
-                res.send("Usuario o contraseña incorrectos");
+            console.log(resultado);
+            if (resultado.length === 0) {
+                // res.send("Usuario o contraseña incorrectos");
                 res.sendStatus(400);
             } else {
-                res.send("Usuario logeado");
+                // res.send("Usuario logeado");
                 res.sendStatus(200);
             }
         });
 });
 
 // Acá me mandas el usuario y la contraseña que va a registrar
-app.post("/registro.html", (req, res) => {
-    let usuario = cifrar(req.body.usuario);
-    let contra = cifrar(req.body.contrasenia);
+app.post("/registro", (req, res) => {
+    let usuario = req.body.usuario;
+    let contra = req.body.contrasenia;
 
     let peponsio = funcs.Reg(usuario, contra)
         .then((resultado) => {
@@ -71,7 +74,7 @@ app.post("/registro.html", (req, res) => {
 });
 
 // Acá me mandas el número que guarda el código QR que scaneas
-app.put("/decodificador.html", (req, res) => {
+app.put("/decodificador", (req, res) => {
     let nombre = req.body.nombre;
     var rp = funcs.GetProd(nombre)
         .then((resultado) => {
@@ -88,7 +91,7 @@ app.put("/decodificador.html", (req, res) => {
         });
 });
 
-app.put("/decopp.html", (req, res) => {
+app.put("/decopp", (req, res) => {
     let nombre = req.body.nombre;
     let peponsio = funcs.GetProd(nombre)
         .then((resultado) => {
@@ -105,7 +108,7 @@ app.put("/decopp.html", (req, res) => {
         });
 });
 
-app.post("codificador.html", (req, res) => {
+app.post("codificador", (req, res) => {
     let nombre = req.body.nombre;
     let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre, code)
