@@ -19,9 +19,10 @@ async function QueryIn(string, values) {
 }
 
 async function Reg(usuario, contra) {
-    let strconsulta = "INSERT INTO Usuario (usuario, pass) VALUES (?, ?)";
+    let strconsulta = "INSERT INTO usuario (Usuario, Pass) VALUES (?, ?)";
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
     console.log("Query sent at: ", Date(Date.now()));
+    console.log(promesa);
     if (promesa instanceof Error) return promesa.ToString();
     //promesa (en caso de error) es un objeto, y quiero que me devuelva un string
     else return true;

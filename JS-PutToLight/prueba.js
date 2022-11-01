@@ -18,19 +18,6 @@ app.get("/", () => {
     console.log(descifrar("U2FsdGVkX1+bkuBRptU6iqeXd9dFYSxaYchmuWbF3Qs="));
 });
 
-const crypto = require("crypto-js");
-
-const cifrar = (texto) => {
-    let textocifrado = crypto.AES.encrypt(texto, "U2FsdGVkX1/wowNpzf77abWeeCCSm8G77Bo+l3MjhFk=").toString();
-    return textocifrado;
-}
-
-const descifrar = (texto) => {
-    let bytes = crypto.AES.decrypt(texto, "U2FsdGVkX1/wowNpzf77abWeeCCSm8G77Bo+l3MjhFk=");
-    let textodescifrado = bytes.toString(crypto.enc.Utf8);
-    return textodescifrado;
-}
-
 const mysql = require("mysql2");
 const funcs = require("./MySQLFuncs.js");
 
@@ -47,10 +34,10 @@ app.post("/login", (req, res) => {
         .then((resultado) => {
             console.log(resultado);
             if (resultado.length === 0) {
-                // res.send("Usuario o contraseña incorrectos");
+                console.log("Usuario o contraseña incorrectos");
                 res.sendStatus(400);
             } else {
-                // res.send("Usuario logeado");
+                console.log("Usuario logeado");
                 res.sendStatus(200);
             }
         });
@@ -63,11 +50,11 @@ app.post("/registro", (req, res) => {
 
     let peponsio = funcs.Reg(usuario, contra)
         .then((resultado) => {
-            if (resultado) {
-                res.send("Usuario registrado");
+            if (resultado.length != 0) {
+                // res.send("Usuario registrado");
                 res.sendStatus(200);
             } else {
-                res.send("Error: Usuario ya registrado");
+                // res.send("Error: Usuario ya registrado");
                 res.sendStatus(400);
             }
         });
@@ -82,10 +69,10 @@ app.put("/decodificador", (req, res) => {
                 .then((ress) => {
                     if (ress) {
                         res.send(ress);
-                        res.sendStatus(200);
+                        // res.sendStatus(200);
                     } else {
-                        res.send("Error: Producto no encontrado");
-                        res.sendStatus(400);
+                        console.log("Error: Producto no encontrado");
+                        res.sendStatus(404);
                     }
                 });
         });
@@ -99,16 +86,16 @@ app.put("/decopp", (req, res) => {
                 .then((ress) => {
                     if (ress === true) {
                         res.send(ress);
-                        res.sendStatus(200);
+                        // res.sendStatus(200);
                     } else {
-                        res.send("Error: Producto no encontrado");
+                        console.log("Error: Producto no encontrado");
                         res.sendStatus(400);
                     }
                 });
         });
 });
 
-app.post("codificador", (req, res) => {
+app.post("/codificador", (req, res) => {
     let nombre = req.body.nombre;
     let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre, code)

@@ -57,28 +57,27 @@ document.addEventListener("DOMContentLoaded", () => {
             contracon.style.borderColor = "red";
         } else {
             //register
-            iniciar.addEventListener("click", () => {
-                fetch('http://localhost:9000/registro.html', {
-                        method: "POST",
-                        headers: {
-                            "Accept": "application/json",
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            usuario: Usu.value,
-                            contrasenia: Pass1.value
-                        })
+
+            fetch('http://localhost:9000/registro', {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        usuario: Usu.value,
+                        contrasenia: Pass1.value
                     })
-                    .then(response => {
-                        if (response.status === 200) {
-                            // se creo el usuario
-                            window.open('index.html', "_self");
-                        } else {
-                            pan.innerText = "Ha ocurrido un error inesperado"
-                            pan.style.color = "red";
-                        }
-                    })
-            })
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        // se creo el usuario
+                        window.open('index.html', "_self");
+                    } else {
+                        pan.innerText = "Ha ocurrido un error inesperado"
+                        pan.style.color = "red";
+                    }
+                });
         }
     }
-})
+});
