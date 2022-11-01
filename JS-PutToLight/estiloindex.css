@@ -103,6 +103,8 @@ body {
     --color-grey: #cccccc;
     --color-green: #4296f4;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .slider {
