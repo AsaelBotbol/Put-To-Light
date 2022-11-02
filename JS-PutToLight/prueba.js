@@ -95,7 +95,7 @@ app.post("/codificador", (req, res) => {
     // let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre)
         .then((resultado) => {
-            if (resultado === true) {
+            if (resultado.length == 0) {
                 // res.send("Producto agregado exitosamente");
                 res.sendStatus(200);
             } else {

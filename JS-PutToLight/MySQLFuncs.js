@@ -55,7 +55,7 @@ async function AddProd(nombre) {
         if (promesa instanceof Error) return promesa.ToString();
         console.log("Product ", nombre, " added successfully");
         return true;
-    } else return ("Error: Product already exists");
+    } else return ("");
 }
 
 async function PutProd(nombre) {
