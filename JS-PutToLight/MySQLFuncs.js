@@ -37,7 +37,7 @@ async function Logearse(usuario, contra) {
 }
 
 async function GetProd(code) {
-    let strconsulta = "SELECT ProdNom FROM Prod WHERE CodQR = ?";
+    let strconsulta = "SELECT ProdNom FROM prods WHERE CodQR = ?";
     let promesa = await QueryIn(strconsulta, [code]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
@@ -45,11 +45,11 @@ async function GetProd(code) {
 }
 
 async function AddProd(nombre) {
-    let secuela = "SELECT 1 FROM Prod WHERE ProdNom = ?"
+    let secuela = "SELECT 1 FROM prods WHERE ProdNom = ?"
     let promise = await QueryIn(secuela, [nombre]);
 
     if (promise === false) {
-        let strconsulta = "INSERT INTO Prod (ProdNom) VALUES (?)";
+        let strconsulta = "INSERT INTO prods (ProdNom) VALUES (?)";
         let promesa = await QueryIn(strconsulta, [nombre]);
         console.log("Query sent at: ", Date(Date.now()));
         if (promesa instanceof Error) return promesa.ToString();
@@ -59,7 +59,7 @@ async function AddProd(nombre) {
 }
 
 async function PutProd(nombre) {
-    let strconsulta = "SELECT id FROM Prod WHERE ProdNom = ?";
+    let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, nombre);
     if (promesa instanceof Error) return promesa.ToString();
 
@@ -73,7 +73,7 @@ async function PutProd(nombre) {
 }
 
 async function RemProd(nombre) {
-    let strconsulta = "SELECT id FROM Prod WHERE ProdNom = ?";
+    let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, nombre);
     if (promesa instanceof Error) return promesa.ToString();
 
