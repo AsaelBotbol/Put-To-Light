@@ -45,10 +45,10 @@ async function GetProd(code) {
 }
 
 async function AddProd(nombre) {
-    let secuela = "SELECT 1 FROM prods WHERE ProdNom = ?"
+    let secuela = "SELECT * FROM prods WHERE ProdNom = ?"
     let promise = await QueryIn(secuela, [nombre]);
 
-    if (promise === false) {
+    if (promise.length != 0) {
         let strconsulta = "INSERT INTO prods (ProdNom) VALUES (?)";
         let promesa = await QueryIn(strconsulta, [nombre]);
         console.log("Query sent at: ", Date(Date.now()));
