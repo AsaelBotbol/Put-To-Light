@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnsend = document.getElementById("dbsend");
 
     btnsend.addEventListener("click", () => {
-        console.log("funca");
+        console.log("CLICK");
         enviarForm();
     });
 })
-
-
 
 function enviarForm() {
     if (result !== "") {

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     iniciar2.addEventListener("click", () => {
-        console.log("hola");
+        console.log("CLICK");
         enviarForm();
     });
 
