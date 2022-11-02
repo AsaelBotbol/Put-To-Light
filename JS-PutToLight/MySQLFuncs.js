@@ -54,7 +54,7 @@ async function AddProd(nombre) {
         console.log("Query sent at: ", Date(Date.now()));
         if (promesa instanceof Error) return promesa.ToString();
         console.log("Product ", nombre, " added successfully");
-        return ("");
+        return [];
     } else return ("No, pa");
 }
 
