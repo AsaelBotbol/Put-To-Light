@@ -26,7 +26,7 @@ function enviarForm() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nombre: QrResult.value
+                nombre: QR.value
             })
         })
         .then(response => {
