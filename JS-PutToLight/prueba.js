@@ -14,16 +14,11 @@ app.use(cors(corsConfig));
 
 app.use(express.json());
 
-app.get("/", () => {
-    console.log(descifrar("U2FsdGVkX1+bkuBRptU6iqeXd9dFYSxaYchmuWbF3Qs="));
-});
-
 const mysql = require("mysql2");
 const funcs = require("./MySQLFuncs.js");
 
 // Esto es el login, mandame el usuario y la contraseña que ponga en las textboxes
 app.post("/login", (req, res) => {
-    //Encriptar los datos con crypto-js 
     let usuario = req.body.usuario;
     let contra = req.body.contrasenia;
 
@@ -85,8 +80,8 @@ app.put("/decopp", (req, res) => {
             let meci = funcs.PutProd(resultado)
                 .then((ress) => {
                     if (ress === true) {
-                        res.send(ress);
-                        // res.sendStatus(200);
+                        // res.send(ress);
+                        res.sendStatus(200);
                     } else {
                         console.log("Error: Producto no encontrado");
                         res.sendStatus(400);

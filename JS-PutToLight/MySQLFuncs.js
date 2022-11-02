@@ -5,7 +5,7 @@ const mysql = require("mysql2");
 const PoolCon = mysql.createPool({
     host: "localhost",
     user: "root",
-    password: "rootroot",
+    // password: "rootroot",
     database: "ptldb",
 });
 
