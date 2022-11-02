@@ -92,14 +92,14 @@ app.put("/decopp", (req, res) => {
 
 app.post("/codificador", (req, res) => {
     let nombre = req.body.nombre;
-    let code = cifrar(req.body.codigo);
-    let UseFunc = funcs.AddProd(nombre, code)
+    // let code = cifrar(req.body.codigo);
+    let UseFunc = funcs.AddProd(nombre)
         .then((resultado) => {
             if (resultado === true) {
-                res.send("Producto agregado exitosamente");
+                // res.send("Producto agregado exitosamente");
                 res.sendStatus(200);
             } else {
-                res.send("Error: Producto ya registrado");
+                // res.send("Error: Producto ya registrado");
                 res.sendStatus(400);
             }
         });
