@@ -79,7 +79,7 @@ app.put("/decopp", (req, res) => {
         .then((resultado) => {
             let meci = funcs.PutProd(resultado)
                 .then((ress) => {
-                    if (ress === true) {
+                    if (ress.length != 0) {
                         // res.send(ress);
                         res.sendStatus(200);
                     } else {
