@@ -36,11 +36,11 @@ async function Logearse(usuario, contra) {
 }
 
 // async function GetProd(nombre) {
-    // let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
-    // let promesa = await QueryIn(strconsulta, [nombre]);
-    // console.log("Query sent at: ", Date(Date.now()));
-    // if (promesa instanceof Error) return promesa.ToString();
-    // else return promesa;
+// let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
+// let promesa = await QueryIn(strconsulta, [nombre]);
+// console.log("Query sent at: ", Date(Date.now()));
+// if (promesa instanceof Error) return promesa.ToString();
+// else return promesa;
 // }
 
 async function AddProd(nombre) {

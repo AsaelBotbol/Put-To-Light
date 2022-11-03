@@ -32,12 +32,16 @@ function enviarForm() {
                 // se mandó la info
                 console.log("se mandó la info");
                 location.reload();
+
+                const pan = document.getElementById("span3");
+                pan.innerText = "El producto se ha mandado correctamente";
+                pan.style.color = "green";
             } else {
                 console.log("Ha ocurrido un error");
 
 
                 const pan = document.getElementById("span3");
-                pan.innerText = "Ha ocurrido un error";
+                pan.innerText = "Ha ocurrido un error al mandar el producto";
                 pan.style.color = "red";
             }
         })
