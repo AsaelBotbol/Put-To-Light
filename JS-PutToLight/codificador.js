@@ -1,6 +1,3 @@
-const contenedorQR = document.getElementById('contenedorQR');
-const formulario = document.getElementById('formulario');
-
 const QR = new QRCode(contenedorQR);
 
 formulario.addEventListener('submit', (e) => {
@@ -13,9 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     genbtn.addEventListener("click", () => {
         console.log("CLICK");
         enviarForm();
-})
+    })
 });
 
+let qrnombre = document.getElementById("link");
 
 //codificador
 function enviarForm() {
@@ -26,7 +24,7 @@ function enviarForm() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nombre: QR.value
+                nombre: qrnombre.value
             })
         })
         .then(response => {
@@ -37,8 +35,10 @@ function enviarForm() {
             } else {
                 console.log("Ha ocurrido un error");
 
-                // pan.innerText = "Ha ocurrido un error inesperado"
-                // pan.style.color = "red";
+
+                const pan = document.getElementById("span3");
+                pan.innerText = "Ha ocurrido un error";
+                pan.style.color = "red";
             }
         })
 }

@@ -84,7 +84,7 @@ app.put("/decopp", (req, res) => {
                 console.log("Error: Producto no encontrado");
                 res.sendStatus(400);
             }
-       });
+        });
 });
 
 
