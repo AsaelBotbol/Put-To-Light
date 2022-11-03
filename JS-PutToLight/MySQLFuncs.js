@@ -1,11 +1,10 @@
 "use strict";
-
 const mysql = require("mysql2");
 
 const PoolCon = mysql.createPool({
     host: "localhost",
     user: "root",
-    // password: "rootroot",
+    password: "rootroot",
     database: "ptldb",
 });
 
@@ -36,13 +35,13 @@ async function Logearse(usuario, contra) {
     else return promesa;
 }
 
-async function GetProd(code) {
-    let strconsulta = "SELECT ProdNom FROM prods WHERE CodQR = ?";
-    let promesa = await QueryIn(strconsulta, [code]);
-    console.log("Query sent at: ", Date(Date.now()));
-    if (promesa instanceof Error) return promesa.ToString();
-    else return promesa;
-}
+// async function GetProd(nombre) {
+    // let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
+    // let promesa = await QueryIn(strconsulta, [nombre]);
+    // console.log("Query sent at: ", Date(Date.now()));
+    // if (promesa instanceof Error) return promesa.ToString();
+    // else return promesa;
+// }
 
 async function AddProd(nombre) {
     let secuela = "SELECT * FROM prods WHERE ProdNom = ?"
@@ -55,7 +54,7 @@ async function AddProd(nombre) {
         if (promesa instanceof Error) return promesa.ToString();
         console.log("Product ", nombre, " added successfully");
         return [];
-    } else return ("No, pa");
+    } else return ("No funcionaaaaaaaaaaaaaaaaaaaaaaaaaa");
 }
 
 async function PutProd(nombre) {
@@ -86,4 +85,4 @@ async function RemProd(nombre) {
 }
 
 //module.export exporta las funciones para usarlas en la api
-module.exports = { Reg, Logearse, GetProd, AddProd, PutProd, RemProd };
+module.exports = { Reg, Logearse, AddProd, PutProd, RemProd };

@@ -75,20 +75,18 @@ app.put("/decodificador", (req, res) => {
 
 app.put("/decopp", (req, res) => {
     let nombre = req.body.nombre;
-    let peponsio = funcs.GetProd(nombre)
-        .then((resultado) => {
-            let meci = funcs.PutProd(resultado)
-                .then((ress) => {
-                    if (ress.length != 0) {
-                        // res.send(ress);
-                        res.sendStatus(200);
-                    } else {
-                        console.log("Error: Producto no encontrado");
-                        res.sendStatus(400);
-                    }
-                });
-        });
+    let meci = funcs.PutProd(resultado)
+        .then((ress) => {
+            if (ress.length != 0) {
+                // res.send(ress);
+                res.sendStatus(200);
+            } else {
+                console.log("Error: Producto no encontrado");
+                res.sendStatus(400);
+            }
+       });
 });
+
 
 app.post("/codificador", (req, res) => {
     let nombre = req.body.nombre;
