@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 });
 
-let qrnombre = document.getElementById("link");
+var qrnombre = document.getElementById("link");
 
 //codificador
 function enviarForm() {
@@ -24,10 +24,10 @@ function enviarForm() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nombre: qrnombre.value
+                nombre: link.value
             })
         })
-        .then(response => {
+        .then(async response => {
             if (response.status === 200) {
                 // se mandó la info
                 console.log("se mandó la info");
@@ -37,7 +37,7 @@ function enviarForm() {
                 pan.innerText = "El producto se ha mandado correctamente";
                 pan.style.color = "green";
             } else {
-                console.log("Ha ocurrido un error");
+                console.log("Ha ocurrido un error: ", await response.text());
 
 
                 const pan = document.getElementById("span3");
