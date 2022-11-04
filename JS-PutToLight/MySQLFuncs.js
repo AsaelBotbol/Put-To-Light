@@ -45,6 +45,7 @@ async function Logearse(usuario, contra) {
 
 async function AddProd(nombre) {
     let secuela = "SELECT * FROM prods WHERE ProdNom = ?"
+    console.log(nombre);
     let promise = await QueryIn(secuela, [nombre]);
 
 

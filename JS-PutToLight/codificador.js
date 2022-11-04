@@ -24,7 +24,7 @@ function enviarForm() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nombre: link.value
+                nombre: qrnombre.value
             })
         })
         .then(async response => {
