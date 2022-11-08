@@ -36,11 +36,14 @@ function enviarForm() {
                 const pan = document.getElementById("span3");
                 pan.innerText = "El producto se ha mandado correctamente";
                 pan.style.color = "green";
+                window.alert("El producto se ha mandado correctamente!");
+
             } else {
                 console.log("Ha ocurrido un error: ", await response.text());
 
 
                 const pan = document.getElementById("span3");
+                window.alert("Ha ocurrido un error inesperado.");
                 pan.innerText = "Ha ocurrido un error al mandar el producto";
                 pan.style.color = "red";
             }

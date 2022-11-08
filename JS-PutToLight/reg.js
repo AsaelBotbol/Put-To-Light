@@ -73,7 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (response.status === 200) {
                         // se creo el usuario
                         window.open('index.html', "_self");
+                        window.alert("Usuario creado con exito!");
                     } else {
+                        window.alert("Ha ocurrido un error inesperado");
                         pan.innerText = "Ha ocurrido un error inesperado"
                         pan.style.color = "red";
                     }

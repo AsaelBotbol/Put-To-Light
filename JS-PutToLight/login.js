@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response.status === 200) {
                     // usuario logeado
                     window.open("menu.html", "_self");
+                    window.alert("Bienvenido, " + Usua.value);
                 } else {
                     pan.innerText = "Usuario o contraseña incorrectos";
                     pan.style.color = "red";
