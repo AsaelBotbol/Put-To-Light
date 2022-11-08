@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pan = document.getElementById("span3");
     const btnsend = document.getElementById("dbsend");
-    const resultado = document.getElementById("resultString");
+    const resultado = document.getElementById("result");
 
     function enviarForm() {
         console.log("Enviar");
-        if (resultado !== "") {
+        if (resultado.innerText !== "") {
             console.log("dou");
             fetch('http://localhost:9000/decopp', {
                     method: "POST",
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        nombre: resultado.value
+                        nombre: resultado.innerText
                     })
                 })
                 .then(async response => {
@@ -22,11 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         // se mandó la info
                         console.log("se mandó la info");
                         location.reload();
+
                     } else {
                         console.log("Ha ocurrido un error");
 
                         pan.innerText = "Ha ocurrido un error inesperado"
                         pan.style.color = "red";
+
+                        console.log(result.innerText);
                     }
                 })
         } else if (resultado === "") {
