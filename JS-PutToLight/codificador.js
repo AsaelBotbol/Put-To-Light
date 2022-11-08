@@ -31,10 +31,9 @@ function enviarForm() {
             if (response.status === 200) {
                 // se mandó la info
                 console.log("se mandó la info");
-                location.reload();
 
                 const pan = document.getElementById("span3");
-                pan.innerText = "El producto se ha mandado correctamente";
+                pan.innerText = "El producto se ha mandado correctamente!";
                 pan.style.color = "green";
                 window.alert("El producto se ha mandado correctamente!");
 
@@ -43,8 +42,8 @@ function enviarForm() {
 
 
                 const pan = document.getElementById("span3");
-                window.alert("Ha ocurrido un error inesperado.");
-                pan.innerText = "Ha ocurrido un error al mandar el producto";
+                window.alert("Ha ocurrido un error.");
+                pan.innerText = "El producto ya esta en la base de datos.";
                 pan.style.color = "red";
             }
         })
