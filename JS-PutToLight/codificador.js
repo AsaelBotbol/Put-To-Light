@@ -24,24 +24,26 @@ function enviarForm() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nombre: link.value
+                nombre: qrnombre.value
             })
         })
         .then(async response => {
             if (response.status === 200) {
                 // se mandó la info
                 console.log("se mandó la info");
-                location.reload();
 
                 const pan = document.getElementById("span3");
-                pan.innerText = "El producto se ha mandado correctamente";
+                pan.innerText = "El producto se ha mandado correctamente!";
                 pan.style.color = "green";
+                window.alert("El producto se ha mandado correctamente!");
+
             } else {
                 console.log("Ha ocurrido un error: ", await response.text());
 
 
                 const pan = document.getElementById("span3");
-                pan.innerText = "Ha ocurrido un error al mandar el producto";
+                window.alert("Ha ocurrido un error.");
+                pan.innerText = "El producto ya esta en la base de datos.";
                 pan.style.color = "red";
             }
         })
