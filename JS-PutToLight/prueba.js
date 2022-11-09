@@ -25,7 +25,7 @@ app.post("/login", (req, res) => {
     console.log(usuario, contra);
 
     //Usar la función declarada en MySQLFuncs.js
-    const peponsio = funcs.Logearse(usuario, contra)
+    let peponsio = funcs.Logearse(usuario, contra)
         .then((resultado) => {
             console.log(resultado);
             if (resultado.length === 0) {
@@ -46,10 +46,8 @@ app.post("/registro", (req, res) => {
     let peponsio = funcs.Reg(usuario, contra)
         .then((resultado) => {
             if (resultado.length != 0) {
-                // res.send("Usuario registrado");
                 res.sendStatus(200);
             } else {
-                // res.send("Error: Usuario ya registrado");
                 res.sendStatus(400);
             }
         });
@@ -88,7 +86,6 @@ app.put("/decopp", (req, res) => {
 app.post("/codificador", (req, res) => {
     let nombre = req.body.nombre;
     console.log(nombre);
-    // let code = cifrar(req.body.codigo);
     let UseFunc = funcs.AddProd(nombre)
         .then((resultado) => {
             if (resultado) {
