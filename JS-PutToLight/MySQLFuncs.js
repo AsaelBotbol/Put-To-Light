@@ -32,31 +32,28 @@ async function Logearse(usuario, contra) {
     let promesa = await QueryIn(strconsulta, [usuario, contra]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
-    else return promesa;
+    return promesa;
 }
 
-// async function GetProd(nombre) {
-// let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
-// let promesa = await QueryIn(strconsulta, [nombre]);
-// console.log("Query sent at: ", Date(Date.now()));
-// if (promesa instanceof Error) return promesa.ToString();
-// else return promesa;
-// }
+/*
+async function GetProd(nombre) {
+    let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
+    let promesa = await QueryIn(strconsulta, [nombre]);
+    console.log("Query sent at: ", Date(Date.now()));
+    if (promesa instanceof Error) return promesa.ToString();
+    else return promesa;
+}
+*/
 
 async function AddProd(nombre) {
     let secuela = "SELECT * FROM prods WHERE ProdNom = ?"
     let promise = await QueryIn(secuela, [nombre]);
 
-
     if (promise.length === 0) {
         let strconsulta = "INSERT INTO prods (ProdNom) VALUES (?)";
         let promesa = await QueryIn(strconsulta, [nombre]);
         console.log("Query sent at: ", Date(Date.now()));
-        if (promesa instanceof Error) {
-            // return promesa.ToString();
-            console.log("AAAAAA");
-            return false;
-        }
+        if (promesa instanceof Error) return promesa.ToString();
         console.log("Product ", nombre, " added successfully");
         return true;
     } else return false;
@@ -73,7 +70,7 @@ async function PutProd(nombre) {
     if (promesa2 instanceof Error) return promesa2.ToString();
     console.log("Query completed at: ", Date(Date.now()));
     console.log("Product ", nombre, " amount updated successfully");
-    return ("");
+    return ("ola");
 }
 
 async function RemProd(nombre) {

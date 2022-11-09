@@ -58,18 +58,15 @@ app.post("/registro", (req, res) => {
 // Acá me mandas el número que guarda el código QR que scaneas
 app.put("/decodificador", (req, res) => {
     let nombre = req.body.nombre;
-    var rp = funcs.GetProd(nombre)
-        .then((resultado) => {
-            let si = funcs.RemProd(resultado)
-                .then((ress) => {
-                    if (ress) {
-                        res.send(ress);
-                        // res.sendStatus(200);
-                    } else {
-                        console.log("Error: Producto no encontrado");
-                        res.sendStatus(404);
-                    }
-                });
+    let si = funcs.RemProd(resultado)
+        .then((ress) => {
+            if (ress) {
+                res.send(ress);
+                // res.sendStatus(200);
+            } else {
+                console.log("Error: Producto no encontrado");
+                res.status(404);
+            }
         });
 });
 
@@ -77,12 +74,12 @@ app.put("/decopp", (req, res) => {
     let nombre = req.body.nombre;
     let meci = funcs.PutProd(resultado)
         .then((ress) => {
-            if (ress.length != 0) {
+            if (ress === "ola") {
                 // res.send(ress);
-                res.sendStatus(200);
+                res.status(200);
             } else {
                 console.log("Error: Producto no encontrado");
-                res.sendStatus(400);
+                res.status(404);
             }
         });
 });
