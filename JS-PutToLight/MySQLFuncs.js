@@ -65,13 +65,19 @@ async function AddProd(nombre) {
         } else console.log(prodID);
 
         let strconsulta2 = "INSERT INTO espacio (id_Prods, MaxProd) VALUES (?, 10)";
-        let promesa2 = await QueryIn(strconsulta2, [prodID.idProd]);
+        let promesa2 = await QueryIn(strconsulta2, await prodID);
         if (promesa2 instanceof Error) return promesa2.ToString();
         console.log("Product ", nombre, " added successfully");
 
         return true;
     } else return false;
 }
+
+async function SelId (id){
+
+}
+
+// hacelo con promesas y awaits gordo
 
 async function PutProd(nombre) {
     let strconsulta = "SELECT idProd FROM prods WHERE ProdNom = ?";
