@@ -62,10 +62,10 @@ async function AddProd(nombre) {
         if (prodID instanceof Error) {
             console.log("Error: ", prodID.ToString());
             return;
-        } else console.log("Id saved");
+        } else console.log(prodID);
 
         let strconsulta2 = "INSERT INTO espacio (id_Prods, MaxProd) VALUES (?, 10)";
-        let promesa2 = await QueryIn(strconsulta2, [prodID]);
+        let promesa2 = await QueryIn(strconsulta2, [prodID.idProd]);
         if (promesa2 instanceof Error) return promesa2.ToString();
         console.log("Product ", nombre, " added successfully");
 
@@ -74,7 +74,7 @@ async function AddProd(nombre) {
 }
 
 async function PutProd(nombre) {
-    let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
+    let strconsulta = "SELECT idProd FROM prods WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, nombre);
     if (promesa instanceof Error) return promesa.ToString();
 
