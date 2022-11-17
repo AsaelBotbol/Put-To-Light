@@ -57,24 +57,34 @@ async function AddProd(nombre) {
         console.log("Query sent at: ", Date(Date.now()));
         if (promesa instanceof Error) return promesa.ToString();
 
-        let getid = "Select idProd FROM prods WHERE ProdNom = ?";
-        let prodID = await QueryIn(getid, [nombre]);
-        if (prodID instanceof Error) {
-            console.log("Error: ", prodID.ToString());
-            return;
-        } else console.log(prodID);
+        let ProdId = await SelId(nombre);
+        console.log(typeof ProdId, ProdId);
 
-        let strconsulta2 = "INSERT INTO espacio (id_Prods, MaxProd) VALUES (?, 10)";
-        let promesa2 = await QueryIn(strconsulta2, await prodID);
-        if (promesa2 instanceof Error) return promesa2.ToString();
-        console.log("Product ", nombre, " added successfully");
+        console.log(ProdId[0].idProd);
+        let idIns = await InsId(ProdId[0].idProd);
 
+        console.log(ProdId, " ", idIns);
         return true;
-    } else return false;
+    } else console.log("Error: ", promise.ToString());
+    return false;
 }
 
-async function SelId (id){
+async function SelId (nombre){
+    let getid = "Select idProd FROM prods WHERE ProdNom = ?";
+    let prodID = await QueryIn(getid, [nombre]);
+    if (prodID instanceof Error) {
+        console.log("Error: ", prodID.ToString());
+        return;
+    } else console.log(prodID);
 
+    return prodID;
+}
+
+async function InsId (id){
+    let strconsulta2 = "INSERT INTO espacio (id_Prods, MaxProd) VALUES (?, 10)";
+    let promesa2 = await QueryIn(strconsulta2, id);
+    if (promesa2 instanceof Error) return promesa2.ToString();
+    // console.log("Product ", nombre, " added successfully");
 }
 
 // hacelo con promesas y awaits gordo
