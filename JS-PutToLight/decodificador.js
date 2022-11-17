@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (resultado.innerText !== "") {
             console.log("dou");
             fetch('http://localhost:9000/decopp', {
-                    method: "POST",
+                    method: "PUT",
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json"
