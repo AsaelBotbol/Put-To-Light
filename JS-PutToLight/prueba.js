@@ -70,7 +70,8 @@ app.put("/decodificador", (req, res) => {
 
 app.put("/decopp", (req, res) => {
     let nombre = req.body.nombre;
-    let meci = funcs.PutProd(resultado)
+    console.log(nombre);
+    let meci = funcs.PutProd(nombre)
         .then((ress) => {
             if (ress === "ola") {
                 // res.send(ress);
