@@ -1,9 +1,9 @@
-POST http://localhost:9000/codificador HTTP/1.1
+PUT http://localhost:9000/decopp HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 
 {
-    "nombre": "videla"
+    "nombre": "osobuco"
 }
 
 ###

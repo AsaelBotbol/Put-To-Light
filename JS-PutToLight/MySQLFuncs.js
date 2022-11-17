@@ -36,7 +36,7 @@ async function Logearse(usuario, contra) {
 }
 
 async function GetProd(nombre) {
-    let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
+    let strconsulta = "SELECT idProd FROM prods WHERE ProdNom = ?";
     let promesa = await QueryIn(strconsulta, [nombre]);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa instanceof Error) return promesa.ToString();
@@ -91,8 +91,9 @@ async function PutProd(nombre) {
     let prod = await GetProd(nombre);
 
     console.log(prod);
+
     let strconsulta2 = "UPDATE espacio SET CantProd = CantProd + 1 WHERE id_Prods = ?";
-    let promesa2 = await QueryIn(strconsulta2, prod);
+    let promesa2 = await QueryIn(strconsulta2, prod[0].idProd);
     console.log("Query sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
     console.log("Query completed at: ", Date(Date.now()));
