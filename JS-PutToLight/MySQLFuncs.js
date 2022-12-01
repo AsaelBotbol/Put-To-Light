@@ -102,16 +102,16 @@ async function PutProd(nombre) {
 }
 
 async function RemProd(nombre) {
-    let strconsulta = "SELECT id FROM prods WHERE ProdNom = ?";
-    let promesa = await QueryIn(strconsulta, nombre);
-    if (promesa instanceof Error) return promesa.ToString();
+    let prod = await GetProd(nombre);
 
-    let strconsulta2 = "UPDATE Espacio SET CantProd-1 WHERE id = ?";
-    let promesa2 = await QueryIn(strconsulta2, promesa);
+    console.log(prod);
+
+    let strconsulta2 = "UPDATE Espacio SET CantProd = CantProd - 1 WHERE id_Prods = ?";
+    let promesa2 = await QueryIn(strconsulta2, prod[0].idProd);
     console.log("Queries sent at: ", Date(Date.now()));
     if (promesa2 instanceof Error) return promesa2.ToString();
     console.log("Product ", nombre, " removed successfully");
-    return true;
+    return ("ola");
 }
 
 //module.export exporta las funciones para usarlas en la api

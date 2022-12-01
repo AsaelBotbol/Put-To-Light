@@ -56,10 +56,10 @@ app.post("/registro", (req, res) => {
 // Acá me mandas el número que guarda el código QR que scaneas
 app.put("/decodificador", (req, res) => {
     let nombre = req.body.nombre;
-    let si = funcs.RemProd(resultado)
+    let si = funcs.RemProd(nombre)
         .then((ress) => {
-            if (ress) {
-                res.send(ress);
+            if (ress === "ola") {
+                res.status(200);
                 // res.sendStatus(200);
             } else {
                 console.log("Error: Producto no encontrado");
